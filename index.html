@@ -262,6 +262,50 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        /* --- MOBILE RESPONSIVENESS FIX (SPLIT SCREEN) --- */
+        @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr 1.2fr; /* Header, Chat, Clipboard */
+                height: 100dvh; /* Locks to exactly the phone screen height */
+                overflow: hidden; /* Stops the whole page from scrolling */
+                padding: 10px;
+                gap: 10px;
+            }
+            
+            .header-area {
+                flex-wrap: wrap; 
+                justify-content: center;
+                padding: 10px;
+                gap: 10px;
+            }
+
+            .header-title h1 { 
+                font-size: 1.2em; 
+                text-align: center; 
+                width: 100%; /* Forces title to top */
+            }
+            
+            .dashboard-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            #chat-container, #clipboard-container {
+                margin-bottom: 0; 
+                /* Both will scroll internally, staying on screen together */
+            }
+
+            /* Make text slightly smaller to fit better on mobile */
+            .message { padding: 10px 14px; font-size: 0.9em; }
+            .category-btn, .question-btn { padding: 10px; font-size: 0.85em; }
+            
+            .modal-content {
+                width: 95%; 
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
